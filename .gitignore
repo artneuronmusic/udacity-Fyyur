@@ -1,0 +1,12 @@
+*.log
+*.pyc
+*.pyo
+__pycache__/
+.DS_Store
+.vagrant/
+# Ignore files related to API keys
+env/
+.env
+include/
+share/
+
