@@ -34,17 +34,20 @@ def check_number(number1):
         # print(first_two)
         number = ''.join(e for e in first_two if e.isnumeric())
         # print(number)
-        final_result=(number_format(number))
+        final_result=(format_number(number))
     else: 
         # print('number2')
         number = number_list[0]
-        final_result=(number_format(number))
+        final_result=(format_number(number))
 
     return final_result
     
    
-def number_format(number):
-
+def format_number(number):
+    """
+    format ths input number as xxx-xxx-xxxx
+    for example: 744.048.4866x174 -> 744-048-4866
+    """
     first_transformation=''
     if len(number) >10 :
         new = format(int(number[:-1]), ",").replace(",", "-") + number[-1]
@@ -60,6 +63,22 @@ def number_format(number):
         #print(number[0]+format(int(number[:-1]), ",").replace(',', '-')+number[-1])
     return first_transformation
     
+
+''' ex: 744.048.4866, 001-622-733-1574, (813)376-9178'''
+
+TEST_CASES = [
+    ("+1-100-695-4529x5551", "100-695-4529"),
+    ("744.048.4866x174", "744-048-4866"),
+    ("(813)376-9178", "813-376-9178"),
+    ("001-622-733-1574", "622-733-1574"),
+]
+for original, formatted in TEST_CASES:
+    computed=check_number(original)
+    if computed == formatted:
+        print("PASS", original, computed)
+    else:
+        print("FAIL", original, computed)
+        
 
 
 
