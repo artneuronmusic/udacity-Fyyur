@@ -1,10 +1,13 @@
-from faker import Faker
 import random
 from random import randint, randrange
-from faker_web import WebProvider
 import re
+
+from faker import Faker
+from faker_web import WebProvider
 from faker_e164.providers import E164Provider
 import phonenumbers
+
+
 fake = Faker(locale='en_US')
 
 #-------------------------------------------------------#
